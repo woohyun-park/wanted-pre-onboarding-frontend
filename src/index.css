@@ -1,13 +1,33 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .btn {
+    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 min-w-fit;
+  }
+  .btn-disabled {
+    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded opacity-50 cursor-not-allowed min-w-fit;
+  }
+  .btn_outline {
+    @apply px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent min-w-fit;
+  }
+  .btn-unfocused {
+    @apply px-4 py-2 font-bold text-black bg-gray-100 rounded hover:bg-gray-300 min-w-fit;
+  }
+  .btn-submit {
+    @apply px-4 py-2 font-bold text-white bg-teal-500 rounded hover:bg-teal-700 min-w-fit;
+  }
+
+  .label {
+    @apply block mb-2 text-sm font-bold text-gray-700;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none;
+  }
+
+  .error {
+    @apply text-xs italic text-red-500;
+  }
 }
