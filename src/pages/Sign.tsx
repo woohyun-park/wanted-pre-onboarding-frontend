@@ -28,6 +28,7 @@ export default function Sign({ type }: ISign) {
         localStorage.setItem("access_token", res.data.access_token);
         navigate("/todo");
       }
+      setUser({ ...user, error: "" });
     } catch (e: any) {
       setUser({ ...user, error: e.response.data.message });
     }
@@ -38,6 +39,7 @@ export default function Sign({ type }: ISign) {
     try {
       const res = await requestSignup(user.email, user.password);
       if (res.status === 201) navigate("/signin");
+      setUser({ ...user, error: "" });
     } catch (e: any) {
       setUser({ ...user, error: e.response.data.message });
     }
@@ -84,7 +86,12 @@ export default function Sign({ type }: ISign) {
           <button
             data-testid="signup-button"
             className="btn_outline"
-            onClick={() => navigate("/signup")}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setUser({ ...user, error: "" });
+              navigate("/signup");
+            }}
           >
             회원가입
           </button>
@@ -105,7 +112,11 @@ export default function Sign({ type }: ISign) {
           <button
             data-testid="signin-button"
             className="btn_outline"
-            onClick={() => navigate("/signin")}
+            onClick={(e) => {
+              e.preventDefault();
+              setUser({ ...user, error: "" });
+              navigate("/signin");
+            }}
           >
             로그인
           </button>

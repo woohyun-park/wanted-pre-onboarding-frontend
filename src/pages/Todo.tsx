@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from "react";
+import { Children, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { IDict, ITodo } from "../apis/def";
@@ -69,7 +69,7 @@ export default function Todo() {
                       className="w-8 mr-2"
                       type="checkbox"
                       checked={isCompleted}
-                      onClick={async () => {
+                      onChange={async () => {
                         const newTodo = {
                           ...each,
                           todo: edit ? edit.todo : todo,

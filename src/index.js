@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Layout from "./layout.tsx";
 import Sign from "./pages/Sign.tsx";
-import TodoList from "./pages/TodoList.tsx";
+import Todo from "./pages/Todo.tsx";
 
 import "./index.css";
 
@@ -23,7 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path: "todo",
-        element: <TodoList />,
+        element: <Todo />,
+      },
+      {
+        path: "*",
+        element: <></>,
       },
     ],
   },
