@@ -1,27 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Sign from "./sign.tsx";
-import Todo from "./todo.tsx";
-import "./index.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Layout from "./layout.tsx";
+import Sign from "./pages/Sign.tsx";
+import TodoList from "./pages/TodoList.tsx";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <>default</>,
-  },
-  {
-    path: "/signup",
-    element: <Sign type="signup" />,
-  },
-  {
-    path: "/signin",
-    element: <Sign type="signin" />,
-  },
-  {
-    path: "/todo",
-    element: <Todo />,
+    element: <Layout />,
+    children: [
+      {
+        path: "signup",
+        element: <Sign type="signup" />,
+      },
+      {
+        path: "signin",
+        element: <Sign type="signin" />,
+      },
+      {
+        path: "todo",
+        element: <TodoList />,
+      },
+    ],
   },
 ]);
 
