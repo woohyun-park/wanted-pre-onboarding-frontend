@@ -18,7 +18,7 @@ export default function Layout() {
       setInterval(checkLogin, 1000);
     }
     init();
-  }, []);
+  }, [navigate]);
 
   return <Outlet />;
 }
