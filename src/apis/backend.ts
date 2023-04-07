@@ -26,7 +26,7 @@ export async function requestSignup(email: string, password: string) {
 }
 
 export async function createTodo(todo: string) {
-  await axios.post(
+  return await axios.post(
     `${API_URL}/todos`,
     { todo },
     {
@@ -47,7 +47,7 @@ export async function readTodos() {
   return res.data;
 }
 
-export async function updateTodos(newTodo: ITodo) {
+export async function updateTodo(newTodo: ITodo) {
   const { id, todo, isCompleted } = newTodo;
   await axios.put(
     `${API_URL}/todos/${id}`,
