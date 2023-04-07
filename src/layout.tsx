@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import { isTokenValid } from "./apis/valid";
 
-interface ILayout {
-  children: React.ReactNode;
-}
-
-export default function Layout({ children }: ILayout) {
+export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,5 +21,5 @@ export default function Layout({ children }: ILayout) {
     checkLogin();
   }, [navigate, location.pathname]);
 
-  return <>{children}</>;
+  return <Outlet />;
 }

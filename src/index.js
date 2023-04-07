@@ -10,32 +10,26 @@ import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: "/signup",
-    element: (
-      <Layout>
-        <Sign type="signup" />
-      </Layout>
-    ),
-  },
-  {
-    path: "/signin",
-    element: (
-      <Layout>
-        <Sign type="signin" />
-      </Layout>
-    ),
-  },
-  {
-    path: "/todos",
-    element: (
-      <Layout>
-        <Todo />
-      </Layout>
-    ),
-  },
-  {
-    path: "/*",
+    path: "/",
     element: <Layout />,
+    children: [
+      {
+        path: "signup",
+        element: <Sign type="signup" />,
+      },
+      {
+        path: "signin",
+        element: <Sign type="signin" />,
+      },
+      {
+        path: "todo",
+        element: <Todo />,
+      },
+      {
+        path: "*",
+        element: <></>,
+      },
+    ],
   },
 ]);
 
