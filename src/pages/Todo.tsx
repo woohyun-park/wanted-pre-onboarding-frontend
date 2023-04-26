@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { IDict, ITodo } from "../interfaces";
 import { createTodo, deleteTodos, readTodos, updateTodo } from "../apis/todo";
+import TodoNew from "../components/TodoNew";
 
 export default function Todo() {
   const navigate = useNavigate();
@@ -32,7 +33,8 @@ export default function Todo() {
 
   return (
     <div className="m-4">
-      <div className="flex mb-2">
+      <TodoNew todos={todos} setTodos={setTodos} />
+      {/* <div className="flex mb-2">
         <input
           data-testid="new-todo-input"
           className="mr-2 input"
@@ -50,7 +52,7 @@ export default function Todo() {
         >
           추가
         </button>
-      </div>
+      </div> */}
       <ul className="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-md ">
         {Children.toArray(
           todos.map((each) => {
