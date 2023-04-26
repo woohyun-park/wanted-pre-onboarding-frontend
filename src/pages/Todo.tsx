@@ -1,13 +1,8 @@
 import { Children, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { IDict, ITodo } from "../apis/def";
-import {
-  createTodo,
-  deleteTodos,
-  readTodos,
-  updateTodo,
-} from "../apis/backend";
+import { IDict, ITodo } from "../interfaces";
+import { createTodo, deleteTodos, readTodos, updateTodo } from "../apis/todo";
 
 export default function Todo() {
   const navigate = useNavigate();

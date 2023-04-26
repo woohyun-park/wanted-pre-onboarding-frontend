@@ -5,10 +5,10 @@ function checkPassword(password: string) {
   return password.length >= 8;
 }
 
-export function isUserValid(email: string, password: string) {
+export function checkUserInfo(email: string, password: string) {
   return checkEmail(email) && checkPassword(password);
 }
 
-export function isTokenValid() {
+export function checkToken() {
   return localStorage.getItem("access_token") ? true : false;
 }

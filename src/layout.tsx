@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
-import { isTokenValid } from "./apis/valid";
+import { checkToken } from "./utils/valid";
 
 export default function Layout() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ export default function Layout() {
   useEffect(() => {
     function checkLogin() {
       const path = location.pathname;
-      if (isTokenValid()) {
+      if (checkToken()) {
         navigate("/todo");
       } else {
         if (path !== "/signin" && path !== "/signup") {

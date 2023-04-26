@@ -3,10 +3,11 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Layout from "./layout.tsx";
-import Sign from "./pages/Sign.tsx";
 import Todo from "./pages/Todo.tsx";
 
 import "./index.css";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -15,11 +16,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "signup",
-        element: <Sign type="signup" />,
+        element: <SignUp />,
       },
       {
         path: "signin",
-        element: <Sign type="signin" />,
+        element: <SignIn />,
       },
       {
         path: "todo",
